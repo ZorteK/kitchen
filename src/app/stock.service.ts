@@ -13,7 +13,12 @@ export class StockService {
   constructor(private http: HttpClient ) { }
 
   getStocks(): Observable<Stock[]> {
-    const url = `http://192.168.1.76:9001/${this.apiUrl}`;
+    const url = `http://192.168.1.76:8080/${this.apiUrl}`;
     return this.http.get<Stock[]>(url);
+  }
+
+  update(updatedStock: Stock): Observable<Stock> {
+    const url = `http://192.168.1.76:8080/${this.apiUrl}/${updatedStock.id}`;
+    return this.http.put<Stock>(url, updatedStock);
   }
 }

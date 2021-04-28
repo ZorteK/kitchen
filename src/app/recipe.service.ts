@@ -12,7 +12,7 @@ export class RecipeService {
   constructor(private http: HttpClient ) { }
 
   randomRecipe(): Observable<Recipe> {
-    const url = `http://192.168.1.76:9001/${this.apiUrl}/random`;
+    const url = `http://192.168.1.76:8080/${this.apiUrl}/random`;
     return this.http.get<Recipe>(url);
   }
 }

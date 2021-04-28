@@ -22,4 +22,22 @@ export class StockComponent implements OnInit {
     this.stockService.getStocks()
       .subscribe(result => this.stocks = result);
   }
+
+  update(stock: Stock): void {
+    console.log('coucou');
+    console.log(stock);
+    this.stockService.update(stock).subscribe(result => console.log(result));
+  }
+
+  stockMinusOne(stock: Stock): void {
+    stock.quantity--;
+    this.stockService.update(stock).subscribe(result => console.log(result));
+
+  }
+
+  stockPlusOne(stock: Stock): void {
+    console.log('+1');
+    stock.quantity++;
+    this.stockService.update(stock).subscribe(result => console.log(result));
+  }
 }

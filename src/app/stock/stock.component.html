@@ -2,6 +2,11 @@
 
 <ul>
   <li *ngFor="let stock of stocks">
-    {{stock.ingredient.name}} :   {{stock.quantity}}
+    {{stock.ingredient.name}} :
+    <button mat-mini-fab (click)="stockMinusOne(stock)">-1</button>
+    {{stock.quantity}}
+    <button mat-mini-fab (click)="stockPlusOne(stock)">+1</button>
+    <mat-slide-toggle [(ngModel)]=stock.available (change)="update(stock)"> Available</mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]=stock.toBuy (change)="update(stock)"> To buy</mat-slide-toggle>
   </li>
 </ul>
